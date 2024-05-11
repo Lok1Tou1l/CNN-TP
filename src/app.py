@@ -13,7 +13,7 @@ model.load_state_dict(torch.load('models/trained_model.pth'))
 model.eval()
 
 # Define the labels for the model
-labels = ['piece1', 'piece2', 'piece3', 'piece4']
+labels = ['piece 1', 'piece 2', 'piece ', 'piece 4']
 
 # Define the image transformations
 transform = transforms.Compose([
