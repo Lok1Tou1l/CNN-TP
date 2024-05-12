@@ -71,7 +71,7 @@ def train_model(data_dir, batch_size, num_epochs, learning_rate):
     ax.set_ylabel('Actual label');
     ax.set_xlabel('Predicted label');
     ax.set_title('Confusion Matrix', size = 15);
-    fig.savefig("data/confusion_matrix.pdf")
+    fig.savefig("data/confusion_matrix.png")
 
 
 if __name__ == '__main__':

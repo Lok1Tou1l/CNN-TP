@@ -1,6 +1,4 @@
 import torch
-import os
-from torch import nn
 from torchvision import transforms
 import model as net
 from PIL import Image

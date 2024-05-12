@@ -23,4 +23,4 @@ def create_learning_curve(num_epochs, epoch_loss, test_loss, accuracy):
     ax2.legend()
 
     # Save the figure
-    fig.savefig('learning_curves.pdf')
+    fig.savefig('learning_curves.png')
