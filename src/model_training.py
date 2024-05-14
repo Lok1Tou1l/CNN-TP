@@ -5,6 +5,7 @@ import os
 import model as net
 import data_preprocessing as dp
 import matplotlib.pyplot as plt 
+import numpy as np
 from sklearn.metrics import confusion_matrix
 import seaborn as sns
 
@@ -68,10 +69,23 @@ def train_model(data_dir, batch_size, num_epochs, learning_rate):
     # Plot the confusion matrix
     fig, ax = plt.subplots(figsize=(10,10))
     sns.heatmap(cm, annot=True, fmt=".0f", linewidths=.5, square = True, cmap = 'Blues_r', ax=ax);
-    ax.set_ylabel('Actual label');
-    ax.set_xlabel('Predicted label');
-    ax.set_title('Confusion Matrix', size = 15);
+    ax.set_ylabel('Actual label')
+    ax.set_xlabel('Predicted label')
+    ax.set_title('Confusion Matrix', size = 15)
     fig.savefig("data/confusion_matrix.png")
+
+
+    # Normalize the predictions
+    all_preds_normalized = (all_preds - np.min(all_preds)) / (np.max(all_preds) - np.min(all_preds))
+
+    # Plot the normalized predictions
+    plt.hist(all_preds_normalized, bins=10, alpha=0.5)
+    plt.title('Normalized Predictions')
+    plt.xlabel('Predicted label')
+    plt.ylabel('Frequency')
+    plt.show()
+
+
 
 
 if __name__ == '__main__':
